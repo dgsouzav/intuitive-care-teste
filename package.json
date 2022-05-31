@@ -1,0 +1,24 @@
+{
+  "name": "intuitive-care-teste",
+  "version": "1.0.0",
+  "description": "Teste de estágio ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgsouzav/intuitive-care-teste.git"
+  },
+  "author": "dgsouzav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dgsouzav/intuitive-care-teste/issues"
+  },
+  "homepage": "https://github.com/dgsouzav/intuitive-care-teste#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "fast-csv": "^4.3.6",
+    "nodemon": "^2.0.16"
+  }
+}
