@@ -1,13 +1,13 @@
-const fs = require('fs');
+const fs = require('fs')
 
-const allFileContents = fs.readFileSync('src/teste.csv', 'latin1');
+const allFileContents = fs.readFileSync('src/teste.csv', 'latin1')
 
-const lines = allFileContents.split(/\r?\n/);
-const arrayOfObjects = [];
+const lines = allFileContents.split(/\r?\n/)
+const arrayOfObjects = []
 
 for (let i = 3; i < lines.length - 1; i++) {
-    const line = lines[i];
-    const lineArray = line.split(';');
+    const line = lines[i]
+    const lineArray = line.split(';')
 
     const obj = {
         registro_ans: lineArray[0].replace(/"/g, ''),
@@ -30,7 +30,7 @@ for (let i = 3; i < lines.length - 1; i++) {
         cargo_representante: lineArray[17].replace(/"/g, ''),
         data_registro_ans: lineArray[18].replace(/"/g, ''),
     };
-    arrayOfObjects.push(obj);
+    arrayOfObjects.push(obj)
 }
-console.log(arrayOfObjects);
-module.exports = arrayOfObjects;
+console.log(arrayOfObjects)
+module.exports = arrayOfObjects
