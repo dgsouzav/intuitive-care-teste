@@ -1,14 +1,14 @@
-const { append } = require('express/lib/response')
-const fs = require('fs')
 const express = require('express')
-
 const app = express()
 
-const allFileContents = fs.readFileSync('src/teste.csv', 'latin1')
-allFileContents.split(/\r?\n/).forEach(line =>  {
-    const lineArray = line.split(';')
-})
+require("./db/connection.js")
+
+app.use(express.json())
+
+require('./controllers/controller.js')(app)
 
 app.listen(3000, () => { 
     console.log('Server running on port 3000')
 })
+
+module.exports = app

@@ -1,28 +1,85 @@
+const express = require('express');
 const mongooose = require('mongoose'); 
-const Schema = mongoose.Schema;
+const Schema = mongooose.Schema;
 
 const registerSchema = new Schema({
-    registroAns: Number,
-    cnpj: Number,
-    razaoSocial: String,
-    nomeFantasia: String,
-    modalidade: String,
-    logradouro: String,
-    numero: Number,
-    complemento: String,
-    bairro: String,
-    cidade: String,
-    uf: String,
-    cep: Number,
-    ddd: String,
-    telefone: String,
-    fax: String,
-    enderecoEletronico: String,
-    representante: String,
-    cargoRepresentante: String,
-    dataRegistroAns: Date,
+    registroAns: {
+        type: String,
+        required: false
+    },
+    cnpj: {
+        type: String,
+        required: false
+    },
+    razaoSocial: {
+        type: String,
+        required: false
+    },
+    nomeFantasia: {
+        type: String,
+        required: false
+    },
+    modalidade: {
+        type: String,
+        required: false
+    },
+    logradouro: {
+        type: String,
+        required: false
+    },
+    numero: {
+        type: String,
+        required: false
+    },
+    complemento: {
+        type: String
+    },
+    bairro: {
+        type: String,
+        required: false
+    },
+    cidade: {
+        type: String,
+        required: false
+    },
+    uf: {
+        type: String,
+        required: false
+    },
+    cep: {
+        type: String,
+        required: false
+    },
+    ddd: {
+        type:String,
+        required: false
+    },
+    telefone: {
+        type: String,
+        required: false
+    },
+    fax: {
+        type: String,
+        required: false
+    },
+    enderecoEletronico: {
+        type: String,
+        required: false
+    },
+    representante: {
+        type: String,
+        required: false
+    },
+    cargoRepresentante: {
+        type: String,
+        required: false
+    },
+    dataRegistroAns: {
+        type: String,
+        required: false
+    },
 });
 
-const register = mongooose.model('register', registerSchema);
+const register = mongooose.model('Register', registerSchema);
 
 module.exports = register;

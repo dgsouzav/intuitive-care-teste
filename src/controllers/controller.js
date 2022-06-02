@@ -1,44 +1,48 @@
 const express = require('express')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/intuitive-care')
 
 const router = express.Router()
-
-const api = require('./src/csvArray')
+const Register = require('../models/registerModel')
 
 router.post('/register', async (req, res) => {
     const arrayOfObjects = req.body
-    if (await register(arrayOfObjects)) {
-        res.status(400).send('Registro realizado com sucesso!')
+    if (await Register.create(arrayOfObjects)) {
+        return res.status(200).send('Registro realizado com sucesso!')
     } else {
-        res.send(500)('ERROR')
+        return res.send(500)('ERROR')
     }
-
 })
 
 router.get('/search', async (req, res) => {
-    const search = req.query.search
-    const Name = req.query.name
-    const result = await searchByName(search)
-    res.send(result)
-})
+    try { 
+        const registers = await Register.find();
 
-router.put('/update', async (req, res) => { 
+        return res.send({ registers });
+    } catch (err) {
+        return res.status(500).send({ error: 'Falha na consulta' });
+    }
+});
+
+router.put('/update/:id', async (req, res) => { 
     const arrayOfObjects = req.body
-    if (await updateOne(arrayOfObjects)) {
-        res.status(400).send('Registro atualizado com sucesso!')
-    } else {
-        res.send(500)('ERROR')
+    try {
+        const registers = await Register.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        return res.send({ registers });
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send({ error: 'Falha na atualização' });
     }
 })
 
-router.delete('/delete', async (req, res) => {
-    const arrayOfObjects = req.body
-    if (await deleteOne(arrayOfObjects)) {
-        res.status(400).send('Registro deletado com sucesso!')
-    } else {
-        res.send(500)('ERROR')
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        await Register.findByIdAndRemove(req.params.id);
+        console.log('Deletado com sucesso!');
+        return res.send();
+    } catch (err) {
+        return res.status(500).send({ error: 'Falha na remoção' });
     }
 })
 
-module.exports = app => app.use('/regsterModel', router)
+module.exports = app => app.use('/registerModel', router)
