@@ -1,7 +1,7 @@
 const fs = require('fs')
 
-require("./db/connection.js")
-const Register = require('./models/registerModel')    
+require("../db/connection.js")
+const Register = require('./registerModel')    
 
 Register.deleteMany({}).then(() => {
     const allFileContents = fs.readFileSync('src/teste.csv', 'latin1')
