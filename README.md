@@ -5,7 +5,7 @@
 
 ## Protótipo
 
-![]()
+![](https://raw.githubusercontent.com/dgsouzav/intuitive-care-teste/main/Prot%C3%B3tipo%20Front%20IC%20(Copy)frontIC.png)
 
 ## ToDo List
   - [x] Criar servidor com rota que realiza uma busca textual na lista de cadastro de operadoras (obtido na tarefa de prepação) e retorne as linhas que mais se assemelham;
