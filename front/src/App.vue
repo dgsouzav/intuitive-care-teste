@@ -1,5 +1,5 @@
 <template>
-
+      <div id="app">
         <div class=fundo>
         <div  class="caixa-fundo"></div>
         <div  class="img-logo"></div>
@@ -9,7 +9,7 @@
         <div  class="barra-pesquisa"></div>
         <span  class="dados">Espaço para a tabela de dados.</span>
         <span  class="pesquisa">Espaço para a barra de pesquisa.</span></div>
-
+      </div>
 </template>
     <script>
         
@@ -42,7 +42,7 @@
             position:absolute;
             left:600px;
             top:9px;
-            background-image:url(image/logo_ic.png);
+            background-image:url(./image/logo_ic.png);
             background-repeat:no-repeat;
             background-size:cover;
           }
